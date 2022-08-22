@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root {
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
 @font-face {
     font-family: PoppinsBold;
     src: url(poppins-cufonfonts/Poppins-Bold.ttf);
@@ -11,8 +19,45 @@
     src: url(poppins-cufonfonts/Poppins-Medium.ttf);
 }
 
+.input-div{
+    box-sizing: border-box;
+    padding-left: 10%;
+    position: relative;
+    width: 100%;
+}
+.input-div input {
+    border: solid 2px #f0f0f0;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: block;
+    width: 82%;
+}
+
+.input-div input:focus {
+    border-left: 1px solid #000;
+    outline: none;
+}
+
+.input-div.error input {
+    border-color: var(--error-color);
+}
+
+.input-div.success input {
+    border-color: var(--success-color);
+}
+
+
+.input-div small {
+    color: var(--error-color);
+}
+small{
+    margin-left: 50%;
+}
+
 @media only screen and (max-width: 1440px) {
-    .body {
+    #body {
             background: url(bg-intro-desktop.png);
             background-color: hsl(0, 100%, 74%);
             display: flex;
@@ -31,7 +76,9 @@
     
         .text h2 {
             font-family: PoppinsBold;
+            font-size: 40px;
             font-weight: 700;
+            line-height: 40px;
         }
     
         .text p {
@@ -40,8 +87,10 @@
             font-weight: 400;
         }
     
-        .form {
+        .form-container {
             align-self: center;
+            display: flex;
+            flex-direction: column;
             font-family: PoppinsMedium;
             font-size: 12px;
             font-weight: 500;
@@ -49,12 +98,14 @@
             width: 400px;
         }
     
-        .form>p {
+        .form-p {
             background-color: hsl(248, 32%, 49%);
             border-radius: 10px;
             box-shadow: 0 5px rgba(0, 0, 0, 0.2);
             color: #fff;
-            padding: 14px 16px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding: 5px 16px;
             text-align: center;
         }
     
@@ -65,9 +116,8 @@
             display: flex;
             flex-flow: column nowrap;
             justify-content: space-around;
-            /* align-content: space-around; */
             align-items: center;
-            height: 80%;
+            height: 90%;
             padding-top: 20px;
             padding-bottom: 20px;
         }
@@ -78,28 +128,17 @@
             display: inline-block;
             padding: 10px 16px;
             width: 70%;
-        }
-        .input:focus{
-            outline: 1px solid black;
-        }
-    
+        }   
         form a {
             color: hsl(0, 100%, 74%);
             text-decoration: none;
         }
 
-        form > input[type="text"]:invalid:not(:focus):placeholder-shown,
-        form > input[type="email"]:invalid:not(:focus):placeholder-shown,
-        form > input[type="password"]:invalid:not(:focus):placeholder-shown{
-
-            outline: 1px solid hsl(0, 100%, 74%);
+        .btn{
+            text-align: center;
+            width: 100%;
         }
-            
-    
-        .input {
-            color: #000;
-        }
-        .btn {
+        #btn {
             background-color: hsl(154, 59%, 51%);
             box-shadow: inset rgb(106, 161, 106) 0 -2px 2px 0;
             color: #fff;
@@ -108,7 +147,7 @@
             font-size: 11px;
             width: 80%;
         }
-        .btn:hover{
+        #btn:hover{
             cursor: pointer;
         }
     
@@ -121,7 +160,7 @@
 
 
 @media only screen and (max-width: 375px){
-    .body{
+    #body{
         background: url(bg-intro-mobile.png);
         background-color: hsl(0, 100%, 74%);
         display: flex;
@@ -150,7 +189,7 @@
         text-align: center;
         padding: 0 40px;
     }
-    .form{
+    .form-container{
         float: right;
         font-family: PoppinsMedium;
         font-size: 12px;
@@ -159,7 +198,7 @@
         padding: 14px 30px;
         width: 70%;
     }
-    .form>p{
+    .form-p{
         background-color: hsl(248, 32%, 49%);
         border-radius: 10px;
         color: #fff;
@@ -173,7 +212,6 @@
         flex-flow: column nowrap;
         height: auto;
         justify-content: space-between;
-        /* align-content: space-around; */
         align-items: center;
         height: 300px;
         padding-top: 20px;
@@ -190,10 +228,7 @@
         color: hsl(0, 100%, 74%);
         text-decoration: none;
     }
-    .input{
-        color: #000;
-    }
-    .btn{
+    #btn{
         background-color: hsl(154, 59%, 51%);
         box-shadow: inset rgb(106, 161, 106) 0 -2px 2px 0;
         color: #fff;
