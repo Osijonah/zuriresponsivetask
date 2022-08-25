@@ -210,10 +210,9 @@ small{
         border-radius: 10px;
         display: flex;
         flex-flow: column nowrap;
-        height: auto;
         justify-content: space-between;
         align-items: center;
-        height: 300px;
+        height: auto;
         padding-top: 20px;
         padding-bottom: 20px;
     }
@@ -243,6 +242,7 @@ small{
         font-weight: 400;
     }
     footer{
+            margin-bottom: 5px;
             padding: 0 40px;
             text-align: center;
     }
