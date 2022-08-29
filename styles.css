@@ -48,13 +48,28 @@
     border-color: var(--success-color);
 }
 
+.input-div{
+    position: relative;
+}
 
-.input-div small {
+.input-div i{
+    position: absolute;
+    right: 35px;
+    top: 15px;
+}
+
+.input-div em {
+    color: var(--error-color);
+    float: right;
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+.error {
     color: var(--error-color);
 }
-small{
+/* em{
     margin-left: 50%;
-}
+} */
 
 @media only screen and (max-width: 1440px) {
     #body {
@@ -145,7 +160,7 @@ small{
             font-family: PoppinsMedium;
             font-weight: 500;
             font-size: 11px;
-            width: 80%;
+            width: 83%;
         }
         #btn:hover{
             cursor: pointer;

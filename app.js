@@ -3,6 +3,7 @@ const emailE1 = document.querySelector("#email");
 const passwordE1 = document.querySelector("#password");
 const firstnameE1 = document.querySelector("#firstname");
 const lastnameE1 = document.querySelector("#lastname");
+const icon = document.querySelectorAll(".fa");
 
 const checkFirstname = () => {
   let valid = false;
@@ -12,12 +13,14 @@ const checkFirstname = () => {
   const firstname = firstnameE1.value.trim();
 
   if (!isRequired(firstname)) {
-    showError(firstnameE1, "Firstname cannot be blank.");
+    showError(firstnameE1, "Firstname cannot be blank");
+    icon[0].classList.add("fa-circle-exclamation");
   } else if (!isBetween(firstname.length, min, max)) {
     showError(
       firstnameE1,
-      `Firstname must be between ${min} and ${max} characters.`
+      `Firstname must be between ${min} and ${max} characters`
     );
+    // icon.classList.add("fa-circle-exclamation");
   } else {
     showSuccess(firstnameE1);
     valid = true;
@@ -33,11 +36,12 @@ const checkLastname = () => {
   const lastname = lastnameE1.value.trim();
 
   if (!isRequired(lastname)) {
-    showError(lastnameE1, "Lastname cannot be blank.");
+    showError(lastnameE1, "Lastname cannot be blank");
+    icon[1].classList.add("fa-circle-exclamation");
   } else if (!isBetween(lastname.length, min, max)) {
     showError(
       lastnameE1,
-      `Lastname must be between ${min} and ${max} characters.`
+      `Lastname must be between ${min} and ${max} characters`
     );
   } else {
     showSuccess(lastnameE1);
@@ -52,9 +56,14 @@ const checkEmail = () => {
   const email = emailE1.value.trim();
 
   if (!isRequired(email)) {
-    showError(emailE1, "Lastname cannot be blank.");
+    showError(emailE1, "Looks like this is not an email");
+    emailE1.value = "email@example.com";
+    emailE1.classList.add("error");
+    icon[2].classList.add("fa-circle-exclamation");
   } else if (!isBetween(email.length, min, max)) {
     showError(emailE1, `Email is not valid.`);
+    emailE1.value = "email@example.com";
+    emailE1.classList.add("error");
   } else {
     showSuccess(emailE1);
     valid = true;
@@ -68,7 +77,8 @@ const checkPassword = () => {
   const password = passwordE1.value.trim();
 
   if (!isRequired(password)) {
-    showError(passwordE1, "Password cannot be blank.");
+    showError(passwordE1, "Password cannot be blank");
+    icon[3].classList.add("fa-circle-exclamation");
   } else if (!isPasswordSecure(password)) {
     showError(
       passwordE1,
@@ -104,7 +114,7 @@ const showError = (input, message) => {
   formField.classList.remove("success");
   formField.classList.add("error");
 
-  const error = formField.querySelector("small");
+  const error = formField.querySelector("em");
   error.textContent = message;
 };
 
@@ -114,7 +124,7 @@ const showSuccess = (input) => {
   formField.classList.remove("error");
   formField.classList.add("success");
 
-  const error = formField.qurySelector("small");
+  const error = formField.qurySelector("em");
   error.textContent = "";
 };
 
